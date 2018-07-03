@@ -18,17 +18,28 @@
         
     };
     //iconActive an Canvas anhängen
+    
+    //css-Formatierung auslesen ....
+    var css=function(elem, prop){
+        //liest die definierten CSS-Styles aus ...
+        return window.getComputedStyle(elem, null).getPropertyValue(prop);
+    }
     var drawIcon = function (e){ 
         //Ermittlung der Mousepostione
-        console.log(e.pageX - canvas.offsetLeft);  
-        console.log(e.pageY - canvas.offsetTop);        
+               
         
         var c=iconActive.cloneNode();
-        //Position zuweisen
         
-        c.style.left=(e.pageX - canvas.offsetLeft -40) + 'px';
-        c.style.top=(e.pageY - canvas.offsetTop -50) + 'px';
-        canvas.appendChild(c);        
+//        console.log(c.width); 
+//        console.log(c.height);
+        canvas.appendChild(c);
+        var h = parseInt(css(iconActive,'height'));
+        var w = parseInt(css(iconActive,'width'));
+        //Position zuweisen
+        c.style.left=(e.pageX - canvas.offsetLeft - h/2) + 'px';
+        c.style.top=(e.pageY - canvas.offsetTop - w/2) + 'px';
+        c.classList.add('object');
+                
     }
     var setIconActive = function(){        
         //this.style.boxShadow="0 0 5px green";
@@ -36,7 +47,7 @@
             iconActive.classList.remove('active');
         }
         iconActive=this;
-        iconActive.classList.add('active');
+        iconActive.classList.add('active');        
     }
     
     var setBackground = function(){

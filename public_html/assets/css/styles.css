@@ -15,15 +15,56 @@ div#myGame > #canvas{
     background-size:100% 100%;
     padding:10px 0;    
 }
+.object{
+    position:absolute;    
+    animation: move 1s linear infinite; 
+}
 div#myGame #canvas img{
     height:80px;
-    position:absolute;
+    position:absolute;                
+    height:80px;
+    position:absolute;  
+ /*    animation: move3 1s linear infinite;
+   animation-name: MoveUpDown;
+    animation-duration:1s;
+    animation-direction:linear;
+    animation-timing-function:infinite; */    
+}
+div#myGame > #canvas img[data-animation="move2"]{
+    animation: move3 1s alternate linear infinite;
+    /*animation:3s move2 alternate ease-in-out infinitive 2s;*/
+}
+div#myGame > #canvas img[data-animation="move3"]{
+    animation: move2 1s reverse linear infinite 5s;
+    /*animation:8s move3 alternate ease-in-out infinitive 1s;*/
+}
+div#myGame > #canvas img[data-animation="move"]{
+    animation: move 1s infinite 5s;
+    /*animation:8s move3 alternate ease-in-out infinitive 1s;*/
+}
+@keyframes move2{
+    0%, 100%{transform:translate(20px, -20px);}
+    25%, 75%{transform:translate(0, 0);}
+}
+@keyframes move3{
+    0%{transform:translate(5px, -5px) scale(0.8) rotateY(0deg);}
+    50%{transform:translate(-5px, 5px) scale(0.8) rotateY(180deg)};
+    100%{transform:translate(5px, -5px) scale(0.8) rotateY(180deg);}
+}
+
+@keyframes move{
+  0%, 100%{
+    transform:translate(20px, -20px) rotateY(0deg);
+  }
+  50%{
+    transform:translate(-20px, 20px) rotateY(270deg);
+  }
 }
 div#myGame > #backgrounds > img, div#myGame > #icons > img{
     height:50px;    
     cursor:pointer;
     box-sizing:border-box;
-    box-shadow:0 0 1px black;
+    box-shadow:0 0 1px black;    
 }
 div#myGame > #backgrounds > img:hover{
     box-shadow: 0 0 8px green;  
@@ -37,3 +78,4 @@ div#myGame > #icons > img.active{
     box-shadow: 0 0 8px green;
     
 }
+
