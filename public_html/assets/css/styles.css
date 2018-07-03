@@ -1,0 +1,26 @@
+div#myGame > #canvas{
+    margin:10% auto;
+    width:990px;
+    height:600px;
+    border:1px solid black;
+    box-shadow:0 0 5px gray;
+    cursor:pointer;
+    background-repeat:no-repeat;
+    background-position:bottom;
+    background-size:100% 100%;
+    padding:10px 0;    
+}
+div#myGame > #backgrounds > img, div#myGame > #icons > img{
+    height:50px;    
+    cursor:pointer;
+    box-sizing:border-box;
+    box-shadow:0 0 1px black;
+}
+div#myGame > #backgrounds > img:hover{
+    box-shadow: 0 0 8px green;  
+    transition: all 0.1s 0.1s;    
+}
+div#myGame > #icons > img:hover{
+    box-shadow: 0 0 5px red;   
+    transition: all 0.1s 0.1s; 
+}
